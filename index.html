@@ -297,7 +297,7 @@
 
         <!-- لوحة التحكم لإضافة شقق جديدة -->
         <section class="admin-section" id="admin-panel">
-            <h2 class="section-title" style="border:none; text-align:center;">لوحة تحكم المسوق (إضافة شقة جديدة للموقع)</h2>
+            <h2 class="section-title" style="border:none; text-align:center;">لوحة تحكم المسوق (إضافة شقة جديدة مع صورة)</h2>
             <form class="admin-form" id="addPropertyForm" onsubmit="addNewProperty(event)">
                 <div>
                     <label for="propTitle">عنوان الشقة:</label>
@@ -316,8 +316,8 @@
                     <input type="text" id="propPrice" placeholder="مثال: 2000 جنيه / الليلة" required>
                 </div>
                 <div>
-                    <label for="propImgText">وصف الصورة المختصر:</label>
-                    <input type="text" id="propImgText" placeholder="مثال: شقة 3 غرف مفروشة" required>
+                    <label for="propImageFile">اختر صورة الشقة من جهازك:</label>
+                    <input type="file" id="propImageFile" accept="image/*" required>
                 </div>
                 <div class="full-width">
                     <label for="propDesc">تفاصيل الشقة ومميزاتها:</label>
@@ -340,13 +340,24 @@
             const title = document.getElementById('propTitle').value;
             const region = document.getElementById('propRegion').value;
             const price = document.getElementById('propPrice').value;
-            const imgText = document.getElementById('propImgText').value;
-            const desc = document.getElementById('propDesc5').value; // تم التصحيح
+            const desc = document.getElementById('propDesc').value;
+            const imageFile = document.getElementById('propImageFile').files[0];
 
+            if (imageFile) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const imageUrl = e.target.result;
+                    createCard(title, region, price, desc, imageUrl);
+                }
+                reader.readAsDataURL(imageFile);
+            }
+        }
+
+        function createCard(title, region, price, desc, imageUrl) {
             const card = document.createElement('div');
             card.className = 'property-card';
             card.innerHTML = `
-                <div class='property-img'>${imgText}</div>
+                <div class='property-img' style='background-image: url("${imageUrl}");'></div>
                 <div class='property-body'>
                     <div class='property-title'>${title}</div>
                     <div class='property-price'>${price}</div>
@@ -365,7 +376,7 @@
 
             document.getElementById(targetGridId).appendChild(card);
             document.getElementById('addPropertyForm').reset();
-            alert('تمت إضافة الشقة بنجاح في القسم المخصص!');
+            alert('تمت إضافة الشقة بنجاح مع صورتها في القسم المخصص!');
         }
     </script>
 </body>
