@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>القاهرة للاستثمار العقاري - شقق مفروشة فاخرة</title>
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #2563eb;
+            --accent-color: #f59e0b;
+            --whatsapp-color: #25d366;
+            --call-color: #0284c7;
+            --bg-color: #f8fafc;
+            --text-color: #334155;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        nav {
+            background-color: #0f172a;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 0.75rem;
+            gap: 1.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+        nav a:hover {
+            background-color: var(--secondary-color);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        section {
+            margin-bottom: 3rem;
+        }
+        h2.section-title {
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-color);
+        }
+        .about-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            font-size: 1.1rem;
+            text-align: center;
+        }
+        .properties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+        .property-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        .property-card:hover {
+            transform: translateY(-5px);
+        }
+        .property-img {
+            height: 200px;
+            background: #cbd5e1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #475569;
+            font-weight: bold;
+            font-size: 1.1rem;
+            background-size: cover;
+            background-position: center;
+        }
+        .property-body {
+            padding: 1.5rem;
+        }
+        .property-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+        .property-price {
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        .property-desc {
+            font-size: 0.95rem;
+            color: #64748b;
+            margin-bottom: 1.5rem;
+        }
+        .card-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .btn {
+            flex: 1;
+            padding: 0.75rem;
+            text-align: center;
+            border-radius: 6px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.3rem;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-whatsapp {
+            background-color: var(--whatsapp-color);
+        }
+        .btn-call {
+            background-color: var(--call-color);
+        }
+        .admin-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-top: 3rem;
+            border: 2px dashed var(--secondary-color);
+        }
+        .admin-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .admin-form .full-width {
+            grid-column: span 2;
+        }
+        .admin-form input, .admin-form select, .admin-form textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+        .admin-form button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.85rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            grid-column: span 2;
+            transition: background 0.3s;
+        }
+        .admin-form button:hover {
+            background-color: var(--secondary-color);
+        }
+        footer {
+            background-color: #0f172a;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+        }
+        @media (max-width: 768px) {
+            .admin-form {
+                grid-template-columns: 1fr;
+            }
+            .admin-form .full-width, .admin-form button {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>القاهرة للاستثمار العقاري</h1>
+        <p>شقق مفروشة فاخرة لأرقى الإقامات في القاهرة - خصيصاً لزوارنا الكرام وعملاء الخليج</p>
+    </header>
+
+    <nav>
+        <a href="#about">من نحن</a>
+        <a href="#mohandessin">شقق المهندسين</a>
+        <a href="#nasr-city">شقق مدينة نصر</a>
+        <a href="#zayed">شقق الشيخ زايد</a>
+        <a href="#admin-panel">لوحة التحكم</a>
+    </nav>
+
+    <div class="container">
+        
+        <!-- من نحن -->
+        <section id="about">
+            <h2 class="section-title">من نحن</h2>
+            <div class="about-box">
+                <p>نحن نعمل في مجال التسويق العقاري للشقق المفروشة الفاخرة في أرقى مناطق القاهرة (المهندسين، مدينة نصر، الشيخ زايد). نسعى دائماً لتوفير راحة الخصوصية والأمان لجميع ضيوفنا وخاصة الإخوة والأشقاء زوار دول الخليج العربي بأسعار تنافسية ومستوى نظافة وخدمة ممتاز.</p>
+            </div>
+        </section>
+
+        <!-- شقق المهندسين -->
+        <section id="mohandessin">
+            <h2 class="section-title">شقق المهندسين</h2>
+            <div class="properties-grid" id="grid-mohandessin">
+                <div class="property-card">
+                    <div class="property-img">شقة ديلوكس شارع شهاب</div>
+                    <div class="property-body">
+                        <div class="property-title">شقة ديلوكس شارع شهاب</div>
+                        <div class="property-price">1800 جنيه / الليلة</div>
+                        <div class="property-desc">3 غرف نوم، استقبال كبير، تكييف كامل، دور علوي متميز وقريب من كافة الخدمات.</div>
+                        <div class="card-actions">
+                            <a class="btn btn-whatsapp" href="https://wa.me/201151179644?text=استفسار%20عن%20شقة%20المهندسين" target="_blank">واتساب</a>
+                            <a class="btn btn-call" href="tel:01151179644">اتصال</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- شقق مدينة نصر -->
+        <section id="nasr-city">
+            <h2 class="section-title">شقق مدينة نصر</h2>
+            <div class="properties-grid" id="grid-nasr-city">
+                <div class="property-card">
+                    <div class="property-img">شقة مكرم عبيد الحيوية</div>
+                    <div class="property-body">
+                        <div class="property-title">شقة مكرم عبيد الحيوية</div>
+                        <div class="property-price">1500 جنيه / الليلة</div>
+                        <div class="property-desc">غرفتين وصالة، فرش مودرن حديث، قريبة جداً من المولات والمطاعم الشهيرة.</div>
+                        <div class="card-actions">
+                            <a class="btn btn-whatsapp" href="https://wa.me/201151179644?text=استفسار%20عن%20شقة%20مدينة%20نصر" target="_blank">واتساب</a>
+                            <a class="btn btn-call" href="tel:01151179644">اتصال</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- شقق الشيخ زايد -->
+        <section id="zayed">
+            <h2 class="section-title">شقق الشيخ زايد</h2>
+            <div class="properties-grid" id="grid-zayed">
+                <div class="property-card">
+                    <div class="property-img">شقة كمبوند هادئة</div>
+                    <div class="property-body">
+                        <div class="property-title">شقة كمبوند هادئة بالشيخ زايد</div>
+                        <div class="property-price">2200 جنيه / الليلة</div>
+                        <div class="property-desc">داخل كمبوند آمن بالكامل، 3 غرف، إطلالة لاندسكيب، أمن حراسة على مدار الساعة.</div>
+                        <div class="card-actions">
+                            <a class="btn btn-whatsapp" href="https://wa.me/201151179644?text=استفسار%20عن%20شقة%20الشيخ%20زايد" target="_blank">واتساب</a>
+                            <a class="btn btn-call" href="tel:01151179644">اتصال</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- لوحة التحكم لإضافة شقق جديدة -->
+        <section class="admin-section" id="admin-panel">
+            <h2 class="section-title" style="border:none; text-align:center;">لوحة تحكم المسوق (إضافة شقة جديدة للموقع)</h2>
+            <form class="admin-form" id="addPropertyForm" onsubmit="addNewProperty(event)">
+                <div>
+                    <label for="propTitle">عنوان الشقة:</label>
+                    <input type="text" id="propTitle" placeholder="مثال: شقة فاخرة بالدقي" required>
+                </div>
+                <div>
+                    <label for="propRegion">المنطقة:</label>
+                    <select id="propRegion" required>
+                        <option value="mohandessin">المهندسين</option>
+                        <option value="nasr-city">مدينة نصر</option>
+                        <option value="zayed">الشيخ زايد</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="propPrice">السعر:</label>
+                    <input type="text" id="propPrice" placeholder="مثال: 2000 جنيه / الليلة" required>
+                </div>
+                <div>
+                    <label for="propImgText">وصف الصورة المختصر:</label>
+                    <input type="text" id="propImgText" placeholder="مثال: شقة 3 غرف مفروشة" required>
+                </div>
+                <div class="full-width">
+                    <label for="propDesc">تفاصيل الشقة ومميزاتها:</label>
+                    <textarea id="propDesc" rows="3" placeholder="اكتب تفاصيل الفرع، الدور، الخدمات..." required></textarea>
+                </div>
+                <button type="submit">إضافة الشقة للموقع فوراً</button>
+            </form>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>جميع الحقوق محفوظة © القاهرة للاستثمار العقاري | للتواصل المباشر: 01151179644</p>
+    </footer>
+
+    <script>
+        function addNewProperty(event) {
+            event.preventDefault();
+            
+            const title = document.getElementById('propTitle').value;
+            const region = document.getElementById('propRegion').value;
+            const price = document.getElementById('propPrice').value;
+            const imgText = document.getElementById('propImgText').value;
+            const desc = document.getElementById('propDesc').value;
+
+            const card = document.createElement('div');
+            card.className = 'property-card';
+            card.innerHTML = `
+                <div class='property-img'>${imgText}</div>
+                <div class='property-body'>
+                    <div class='property-title'>${title}</div>
+                    <div class='property-price'>${price}</div>
+                    <div class='property-desc'>${desc}</div>
+                    <div class='card-actions'>
+                        <a href='https://wa.me/201151179644?text=استفسار عن عقار: ${encodeURIComponent(title)}' class='btn btn-whatsapp' target='_blank'>واتساب</a>
+                        <a href='tel:01151179644' class='btn btn-call'>اتصال</a>
+                    </div>
+                </div>
+            `;
+
+            let targetGridId = '';
+            if (region === 'mohandessin') targetGridId = 'grid-mohandessin';
+            else if (region === 'nasr-city') targetGridId = 'grid-nasr-city';
+            else if (region === 'zayed') targetGridId = 'grid-zayed';
+
+            document.getElementById(targetGridId).appendChild(card);
+            document.getElementById('addPropertyForm').reset();
+            alert('تمت إضافة الشقة بنجاح في القسم المخصص!');
+        }
+    </script>
+</body>
+</html>
